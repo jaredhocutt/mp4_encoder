@@ -4,6 +4,7 @@ import logging
 import os
 import re
 import subprocess
+import shutil
 
 
 logging.basicConfig(level=logging.DEBUG)
@@ -122,7 +123,7 @@ class Encoder(object):
             destination_file = os.path.join(self.destination_dir,
                                             os.path.basename(filename))
             try:
-                os.rename(filename, destination_file)
+                shutil.move(filename, destination_file)
                 return True
             except OSError:
                 logger.exception('Error attempting to move %s to %s',
