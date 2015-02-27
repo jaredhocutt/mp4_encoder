@@ -184,6 +184,7 @@ if __name__ == '__main__':
                         help='delete the source media files after encoding')
     args = parser.parse_args()
     encoder = Encoder(args.input_dir, args.destination_dir,
+                      working_dir=args.working_dir,
                       delete_source_file=args.delete_source,
                       handbrake_cli=args.handbrake)
     encoder.encode_media_files()
