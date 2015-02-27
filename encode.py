@@ -58,7 +58,9 @@ class Encoder(object):
         """
         for media_file in self.media_files():
             if not self.sample_file(media_file):
-                handbrake = Handbrake(media_file, exe=self.handbrake_cli)
+                handbrake = Handbrake(media_file,
+                                      working_dir=self.working_dir,
+                                      exe=self.handbrake_cli)
                 output_file = handbrake.encode()
                 self.move_file(output_file)
                 if self.delete_source_file:
